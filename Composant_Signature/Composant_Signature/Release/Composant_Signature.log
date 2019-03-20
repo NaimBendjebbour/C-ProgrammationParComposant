@@ -1,0 +1,8 @@
+﻿  Clefs.cpp
+  main.cpp
+  Signature.cpp
+  uECC.cpp
+  Génération de code en cours...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  LINK : /LTCG spécifié mais aucune génération de code requise ; supprimez /LTCG de la ligne de commande de l'édition de liens pour améliorer les performances de l'éditeur de liens
+  Composant_Signature.vcxproj -> C:\Dauphine\composant\C++ ProgrammationParComposant\Composant_Signature\Release\Composant_Signature.exe
