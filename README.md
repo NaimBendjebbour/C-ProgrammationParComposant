@@ -20,7 +20,7 @@ Le récépteur déchiffre le hashage de la transaction et confirme l’origine d
 Il compare ensuite le hashage reçu avec le résultat du hashage de la transaction (non hashée) reçue.
  
 ### Signatures des méthodes
-Les méthodes du composant Signature sont les suivants :
+Les méthodes du composant Signature sont les suivantes :
     
     Clefs genererClefs();
     
@@ -35,3 +35,14 @@ avec Clefs étant une classe qui contient 2 attribut de type string :
     string public_key
 
 Vous pouvez sauvegarder les 2 clés : `private_key` et `public_key` dans 2 fichiers séparés : `private.key` et `public.key` en utilisant la méthode `save()` de la classe Clefs.
+
+### Test de génération de clef
+
+1- Récupération du projet  :
+
+git clone https://github.com/NaimBendjebbour/C-ProgrammationParComposant.git
+
+2- Dans le répertoire release lancer Composant_Signature.exe
+
+3- Deux fichiers sont générés :   public.key et private.key
+
