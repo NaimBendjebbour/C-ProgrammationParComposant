@@ -1,6 +1,8 @@
 #include "Signature.h"
+#include "uECC.h"
+#include "Hacheur.h"
 
-Clefs Signature::genererClefs() {
+KeyChain Signature::generateKeys() {
 	uECC_Curve curve = uECC_secp256k1();
 	uint8_t _public[64] = { 0 };
 	uint8_t _private[32] = { 0 };
@@ -15,13 +17,11 @@ Clefs Signature::genererClefs() {
 	vector<uint8_t> publicVector(begin(_public), end(_public));
 	string public_key = uint8_to_hex_str(publicVector);
 
-	Clefs key_chain(private_key, public_key);
+	KeyChain key_chain(private_key, public_key);
 	return key_chain;
 }
 
-
-
-string Signature::signerMessage(string data, string private_key) {
+string Signature::signMessage(string data, string private_key) {
 	uECC_Curve curve = uECC_secp256k1();
 	string dataHashed = hash(data);
 	uint8_t* hash = hex_str_to_uint8(dataHashed.c_str());
@@ -32,12 +32,11 @@ string Signature::signerMessage(string data, string private_key) {
 		cout << "uECC_sign() failed" << endl;
 	}
 
-	vector<uint8_t> sigVector = fill_vector(sig, 64);
-	signatureStr = uint8_to_hex_str(sigVector); 
-	return signatureStr;
+	vector<uint8_t> sigVector = fill_vector(sig, 64); 
+	return uint8_to_hex_str(sigVector);
 }
 
-bool Signature::validerSignature(string data, string public_key, string _signature) {
+bool Signature::validateSignature(string data, string public_key, string _signature) {
 	uECC_Curve curve = uECC_secp256k1();
 	string dataHashed = hash(data);
 
@@ -110,5 +109,7 @@ vector<uint8_t> Signature::fill_vector(uint8_t* data, int size) {
 }
 
 string Signature::hash(string data) {
-	return "A8C8E2042F702DCA60AC688EDCDFC72F6EA535745B2A0FD01EF9506E4839C134";
+	Hacheur hacheur = Hacheur();
+	string output = hacheur.hacher(data);
+	return output;
 }

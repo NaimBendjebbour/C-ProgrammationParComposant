@@ -27,7 +27,7 @@
     <ClInclude Include="types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Clefs.h">
+    <ClInclude Include="KeyChain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,8 +41,16 @@
     <ClCompile Include="uECC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Clefs.cpp">
+    <ClCompile Include="KeyChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="curve-specific.inc">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="platform-specific.inc">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
